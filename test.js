@@ -10,7 +10,7 @@
 //Promises
 const promise = new Promise((resolve, reject) => {
  if (true) {
-  resolve('if true it is resolved, and promise.then takes result as argument');
+  resolve('if true ..');
  } else {
   reject('Error, it broke!');
  }
@@ -18,8 +18,6 @@ const promise = new Promise((resolve, reject) => {
 
 promise
  .then(result => result + '!')
- .then(result2 => {
-  // throw Error
-  console.log(result2);
- })
- .catch(() => console.log('errorr'));
+ .then(result2 => result2 + '?')
+ .catch(() => console.log('errorr'))
+ .then(result3 => console.log(result3 + '!'));

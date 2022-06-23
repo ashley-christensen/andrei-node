@@ -23,7 +23,10 @@
 
     xhr.onload = function () {
      if (xhr.status === 200) {
-      document.getElementById('user').innerHTML = xhr.responseText;
+      const user = JSON.parse(xhr.responseText);
+      const output = `<ul><li>${user.email}</li></ul>`;
+      document.getElementById('user').innerHTML = output;
+
      };
     };
 

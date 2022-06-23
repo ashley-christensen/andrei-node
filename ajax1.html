@@ -10,6 +10,8 @@
 
  <body>
   <button id="button">Get Text File</button>
+  <br><br>
+  <div id="text"></div>
 
   <script>
    document.getElementById('button').addEventListener('click', loadText);
@@ -21,17 +23,30 @@
     //OPEN - type of request, url/file, async(boolean)
     xhr.open('GET', 'sample.txt', true);
 
-    // xhr.onload = function () {
-    //  if (xhr.status === 200) {
+    xhr.onprogress = function () {
+     console.log('on progress ready state', xhr.readyState);
+    };
+
+    xhr.onload = function () {
+     if (xhr.status === 200) {
+      document.getElementById('text').innerHTML = xhr.responseText;
+     } else if (xhr.status === 404) {
+      document.getElementById('text').innerHTML = 'Not found';
+     }
+    };
+
+    xhr.onerror = function () {
+     console.log('error in txt file');
+    };
+
+
+
+    // xhr.onreadystatechange = function () {
+    //  console.log('XHR.READYSTATE', xhr.readyState);
+    //  if (xhr.readyState === 4 && xhr.status === 200) {
     //   // console.log(xhr.responseText);
     //  }
     // };
-    
-    xhr.onreadystatechange = function () {
-     if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(xhr.responseText);
-     }
-    };
 
     //SEND
     xhr.send();

@@ -9,6 +9,6 @@ Promise.all(urls.map(url => {
 }
  )).then(results => {
   console.log(results[0])
-  console.log(results[1])c
+  console.log(results[1])
   console.log(results[2])
  })

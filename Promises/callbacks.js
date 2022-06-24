@@ -9,8 +9,6 @@ const posts = [
  }
 ];
 
-document.getElementById('getPosts').addEventListener('click', getPosts);
-
 function getPosts() {
  setTimeout(() => {
   let output = '';
@@ -26,5 +24,15 @@ function getPosts() {
   );
   document.getElementById('output').innerHTML = output;
  }, 1000);
-
 }
+
+function createPost(post, callback) {
+ setTimeout(() => {
+  posts.push(post);
+  callback();
+ }, 2000);
+}
+
+
+
+createPost({ title: 'Post Three', body: 'this is post three' }, getPosts);

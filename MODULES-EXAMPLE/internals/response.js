@@ -4,9 +4,9 @@ function decrypt(data) {
 }
 
 function read() {
- return decrypt('data')
+ return decrypt('data');
 }
 
-export {
+module.exports = {
  read,
-}
+};

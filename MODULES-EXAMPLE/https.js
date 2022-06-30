@@ -1,5 +1,5 @@
-const { send } = require('./request');
-const { read } = require('./response');
+import { send } from './request';
+import { read } from './response';
 
 
 function makeRequest(url, data) {

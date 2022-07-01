@@ -1,8 +1,7 @@
-const { send, read } = require('./internals');
-// const { send } = require('./internals/request.js');
-// const { read } = require('./internals/response.js');
 
-
+const { send } = require('./request');
+const { read } = require('./response');
+const { REQUEST_TIMEOUT } = require('./request');
 
 function makeRequest(url, data) {
  send(url, data);
@@ -11,3 +10,5 @@ function makeRequest(url, data) {
 
 const responseData = makeRequest('https://www.google.com', 'hello');
 console.log(responseData);
+
+console.log(require.cache);

@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-axios.get('http://wwwwww.google.com')
+axios.get('http://www.google.com')
  .then((response) => {
    console.log(response);
   })
@@ -8,5 +8,5 @@ axios.get('http://wwwwww.google.com')
    console.log(error)
   })
   .then(() => {
-   console.log('this execute regardless!!!!!!')
+   console.log('this execute regardless!!!!')
   })
